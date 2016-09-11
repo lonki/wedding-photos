@@ -43,9 +43,6 @@ gulp.task('server', function () {
 });
 
 gulp.task('moveStatic', function() {
-	// return gulpwatch('static/*.*', function () {
-	    
-	// });
 	gulp.src([
 	  	'static/*.*',
 	  	'static/*/*.*',
@@ -55,7 +52,7 @@ gulp.task('moveStatic', function() {
 });
 
 gulp.task('watchStatic', function() {
-	return gulpwatch(['static/*.*','static/*/*.*'], function () {
+	return gulpwatch(['static/*.*','static/*/*.*','static/*/*/*.*'], function () {
 	    gulp.src([
 	  	'static/*.*',
 	  	'static/*/*.*',
