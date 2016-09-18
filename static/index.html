@@ -11,6 +11,66 @@
     <link rel="stylesheet" href="css/layout/bootstrap.css">
     <link rel="stylesheet" href="css/layout/style.css">
     <link rel="stylesheet" href="css/layout/responsive.css">
+    <link href="css/owl.carousel.css" rel="stylesheet">
+    <style>
+    .owl-carousel {
+      position: relative;
+      height: 100%;
+    }
+    .owl-carousel div:not(.owl-controls) {
+      height: 100%;
+    }
+    .owl-carousel .owl-slide {
+      background-image: url("images/hand.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+    }
+    .owl-carousel .owl-controls {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+    }
+    .owl-carousel .owl-controls .owl-buttons div {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      display: inline-block;
+      zoom: 1;
+      margin: 0;
+      width: 50px;
+      height: 30px;
+      line-height: 25px;
+      text-align: center;
+      font-size: .9em;
+      border-radius: 3px;
+      color: #FFF;
+      background: #000;
+      opacity: .6;
+      text-transform: capitalize;
+    }
+    .owl-carousel .owl-controls .owl-buttons .owl-prev {
+      left: 5px;
+    }
+    .owl-carousel .owl-controls .owl-buttons .owl-next {
+      right: 5px;
+    }
+    /*#owl-demo .owl-item img{
+      display: block;
+      width: 100%;
+      height: auto;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+    }*/
+    
+    .logo-overlay {
+        position: absolute;
+        width: 100%;
+        top: 0;
+    }
+    </style>
 </head>
 
 <body>
@@ -31,16 +91,17 @@
     </div>
     <header id="banner" class="banner">
         <div class="wrapper">
-            <div id="background-carousel">
-                <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="item item-no1"></div>
-                        <div class="item item-no2 active"></div>
-                        <div class="item item-no3"></div>
-                    </div>
+            <!--  <div id="owl-demo" class="owl-carousel">
+                <div><img src="images/WEST0584.jpg"></div>
+                <div><img src="images/WEST1239.jpg"></div>
+                <div><img src="images/WEST0882.jpg"></div>
+                <div class="item"><img class="lazyOwl" data-src="images/WEST0584.jpg" alt="Lazy Owl Image"></div>
+            </div> -->
+            <div id="owl-example" class="owl-carousel">
+                <div class="owl-slide">
                 </div>
             </div>
-            <div class="container">
+            <div class="container logo-overlay">
                 <div class="row">
                     <div class="col-sm-12 text-center">
                         <span class="banner-logo">
@@ -54,7 +115,6 @@
                     <div class="col-sm-4 text-center floatLeft">.col-sm-4</div>
                 </div>
             </div>
-            <div class="color-overlay-bg"></div>
         </div>
     </header>
     <section id="couple" class="couple">
@@ -70,56 +130,58 @@
                 </div>
             </div>
             <div class="row">
-                    <div class="col-sm-12 love-bg">
-                        <div class="row">
-                            <div class="col-sm-5">
-                                <div class="thumbnail-block wow animated fadeInLeft" style="visibility: visible;">
-                                    <div class="thumb-img">
-                                        <img class="img-responsive" src="images/groom.png" alt="Tim">
-                                        <div class="thumb-hover">
-                                            <h5>TIM <small>hsueh</small></h5>
-                                            <p>Lorem ipsum dolor sit amet, consectetur isingelit. <br> 
-                                               nunc, non scelerisque ligula. Crasveljusto nulla <br> VestibulumaPraesent sit amet phare.
-                                            </p>
-                                            <ul class="social-icon">
-                                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                            </ul>
-                                            <!-- /.social-icon end -->
-                                        </div>
-                                        <!-- /.thumb-hover -->                                      
+                <div class="col-sm-12 love-bg">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="thumbnail-block wow animated fadeInLeft" style="visibility: visible;">
+                                <div class="thumb-img">
+                                    <img class="img-responsive" src="images/me.jpg" alt="Tim">
+                                    <div class="thumb-hover">
+                                        <h5>TIM <small>hsueh</small></h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetur isingelit.
+                                            <br> nunc, non scelerisque ligula. Crasveljusto nulla
+                                            <br> VestibulumaPraesent sit amet phare.
+                                        </p>
+                                        <ul class="social-icon">
+                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                        </ul>
+                                        <!-- /.social-icon end -->
                                     </div>
-                                    <!-- /.thumb-img -->                                    
+                                    <!-- /.thumb-hover -->
                                 </div>
-                                <!-- /.thumbnail-block-->
+                                <!-- /.thumb-img -->
                             </div>
-                            <div class="col-sm-offset-2 col-sm-5">
-                                <div class="thumbnail-block wow animated fadeInRight" style="visibility: visible;">
-                                    <div class="thumb-img">
-                                        <img class="img-responsive" src="images/bride.png" alt="Celia">
-                                        <div class="thumb-hover">
-                                            <h5>CELIA <small>Su</small></h5>
-                                            <p>Lorem ipsum dolor sit amet, consectetur isingelit. <br> 
-                                               nunc, non scelerisque ligula. Crasveljusto nulla <br> VestibulumaPraesent sit amet phare.
-                                            </p>
-                                            <ul class="social-icon">
-                                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                            </ul>
-                                            <!-- /.social-icon end -->
-                                        </div>
-                                        <!-- /.thumb-hover -->
+                            <!-- /.thumbnail-block-->
+                        </div>
+                        <div class="col-sm-offset-2 col-sm-5">
+                            <div class="thumbnail-block wow animated fadeInRight" style="visibility: visible;">
+                                <div class="thumb-img">
+                                    <img class="img-responsive" src="images/cc.jpg" alt="Celia">
+                                    <div class="thumb-hover">
+                                        <h5>CELIA <small>Su</small></h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetur isingelit.
+                                            <br> nunc, non scelerisque ligula. Crasveljusto nulla
+                                            <br> VestibulumaPraesent sit amet phare.
+                                        </p>
+                                        <ul class="social-icon">
+                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                        </ul>
+                                        <!-- /.social-icon end -->
                                     </div>
-                                    <!-- /.thumb-img -->                                    
+                                    <!-- /.thumb-hover -->
                                 </div>
-                                <!-- /.thumbnail-block -->
+                                <!-- /.thumb-img -->
                             </div>
+                            <!-- /.thumbnail-block -->
                         </div>
                     </div>
-                    <!-- /.love-bg end -->
                 </div>
+                <!-- /.love-bg end -->
+            </div>
             <div id="next-arrow" class="next-arrow">
                 <a href="#story" class="animated infinite rocket"><i class="fa fa-angle-double-down"></i></a>
             </div>
@@ -148,7 +210,7 @@
                                             25 of september
                                         </span>
                                     <div class="timeline-thumbnail wow animated fadeInLeft" data-wow-delay="0s" data-wow-duration="1s" style="visibility: visible;">
-                                        <img class="img-thumbnail" src="images/love_story_01.jpg" alt="Love Story">
+                                        <img class="img-thumbnail" src="images/WEST0527.jpg" alt="Love Story">
                                     </div>
                                 </div>
                             </div>
@@ -175,7 +237,7 @@
                                             25 of september
                                         </span>
                                     <div class="timeline-thumbnail wow animated fadeInLeft" data-wow-delay="0.6s" data-wow-duration="1s" style="visibility: visible;">
-                                        <img class="img-thumbnail" src="images/love_story_02.jpg" alt="Love Story">
+                                        <img class="img-thumbnail" src="images/WEST0317.jpg" alt="Love Story">
                                     </div>
                                 </div>
                             </div>
@@ -202,7 +264,7 @@
                                             25 of september
                                         </span>
                                     <div class="timeline-thumbnail wow animated fadeInLeft" data-wow-delay="1.2s" data-wow-duration="1s" style="visibility: visible;">
-                                        <img class="img-thumbnail" src="images/love_story_03.jpg" alt="Love Story">
+                                        <img class="img-thumbnail" src="images/WEST0882.jpg" alt="Love Story">
                                     </div>
                                 </div>
                             </div>
@@ -230,6 +292,27 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script>
     window.jQuery || document.write('<script src="js/jquery-1.9.1.min.js"><\/script>')
+    </script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        // $("#owl-demo").owlCarousel({
+        //     lazyLoad: true,
+        //     navigation: false,
+        //     singleItem: true
+        // });
+        $("#owl-example").owlCarousel({
+            navigation: false,
+            slideSpeed: 300,
+            singleItem: true,
+            pagination: false,
+            rewindSpeed: 500,
+            afterInit: function(){
+                var height = $(".logo-overlay").height() + parseInt($(".wrapper").css("padding-bottom").replace("px","")); 
+                $(".owl-slide").height(height);
+            }
+        });
+    });
     </script>
 </body>
 
