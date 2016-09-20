@@ -367,7 +367,7 @@ ul, li {
 */
 
 .banner .wrapper {
-	padding-bottom: 50px;
+	/*padding-bottom: 50px;*/
 	position: relative;
 }
 
@@ -1793,7 +1793,16 @@ footer .nav {
 	border-color: #d44646;
 	color: #fff
 }
-
+.menu {
+	font-family: 'Lobster', cursive;
+	height: 40px;
+    /*background: #ff8b8b;*/
+    padding: 10px 0;
+    color: #fff;
+    font-size: 24px;
+    line-height: 14px;
+    letter-spacing: 0.025em;
+}
 
 
 

@@ -419,6 +419,18 @@
 	.col-sm-4:last-child .gift-block {
 	  margin-bottom: 0px;
 	 }
+	 .timeline-left{
+	 	margin-top: -20px;
+	 }
+	 .timeline:nth-child(2) .timeline-left,.timeline:nth-child(3) .timeline-left{
+		padding-top: 30px;
+	 }
+	 .timeline:nth-child(1) .love-sign {
+		top: 27px;
+	 }
+	 .timeline:nth-child(2) .love-sign,.timeline:nth-child(3) .love-sign{
+		top: 70px;
+	 }
 }
 @media screen and (max-width: 480px) {
 	.banner-logo {
