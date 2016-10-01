@@ -63,6 +63,7 @@
     .galereya-slider.ex1 .galereya-slider-close {
         top: auto;
         bottom: 0;
+        opacity: 1;
     }
 
     .galereya-slider.ex1 .galereya-slider-slide {
