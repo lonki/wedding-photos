@@ -756,6 +756,9 @@ ul, li {
    float: left;
    text-align: left;
 }
+.modal .timeline-block-right {
+	width: 100%;
+}
 .timeline-block-right {
 	position: relative;
 	float: left;
@@ -835,6 +838,7 @@ ul, li {
 
 .timeline-body p{
 	text-align: left;
+	line-height: 4;
 }
 
 .timeline-body span{
