@@ -80,7 +80,7 @@
     }
     
     .owl-carousel .owl-slide {
-        background-image: url("../../images/hand.jpg");
+        background-image: url("../images/hand.jpg");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
