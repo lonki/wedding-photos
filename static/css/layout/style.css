@@ -756,6 +756,9 @@ ul, li {
    float: left;
    text-align: left;
 }
+.modal{
+	display: 'inline-table'
+}
 .modal .timeline-block-right {
 	width: 100%;
 }
