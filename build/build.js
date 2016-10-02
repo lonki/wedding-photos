@@ -25,7 +25,7 @@ $(function () {
     setTimeout(function () {
         $("#loading").css("display", "none");
         $("#mainContent").css("opacity", "1");
-    }, 2500);
+    }, 3500);
 });
 
 },{}]},{},[1])
