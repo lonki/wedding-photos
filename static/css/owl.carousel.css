@@ -69,3 +69,59 @@
   -ms-transform: translate3d(0,0,0);
 }
 
+
+.owl-carousel {
+        position: relative;
+        height: 100%;
+    }
+    
+    .owl-carousel div:not(.owl-controls) {
+        height: 100%;
+    }
+    
+    .owl-carousel .owl-slide {
+        background-image: url("../../images/hand.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+    }
+    
+    .owl-carousel .owl-controls {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+    }
+    
+    .owl-carousel .owl-controls .owl-buttons div {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        display: inline-block;
+        zoom: 1;
+        margin: 0;
+        width: 50px;
+        height: 30px;
+        line-height: 25px;
+        text-align: center;
+        font-size: .9em;
+        border-radius: 3px;
+        color: #FFF;
+        background: #000;
+        opacity: .6;
+        text-transform: capitalize;
+    }
+    
+    .owl-carousel .owl-controls .owl-buttons .owl-prev {
+        left: 5px;
+    }
+    
+    .owl-carousel .owl-controls .owl-buttons .owl-next {
+        right: 5px;
+    }
+    
+    .logo-overlay {
+        position: absolute;
+        width: 100%;
+        top: 0;
+    }

@@ -133,7 +133,7 @@
   	    font-size: 16px;
   }
   .timeline-body {
-  	font-size: 12px;
+  	font-size: 16px;
   }
 }
 
@@ -422,13 +422,13 @@
 	 .timeline-left{
 	 	margin-top: -20px;
 	 }
-	 .timeline:nth-child(2) .timeline-left,.timeline:nth-child(3) .timeline-left{
+	 .timeline:nth-child(2) .timeline-left,.timeline:nth-child(3) .timeline-left,.timeline:nth-child(4) .timeline-left{
 		padding-top: 30px;
 	 }
 	 .timeline:nth-child(1) .love-sign {
 		top: 27px;
 	 }
-	 .timeline:nth-child(2) .love-sign,.timeline:nth-child(3) .love-sign{
+	 .timeline:nth-child(2) .love-sign,.timeline:nth-child(3) .love-sign,.timeline:nth-child(4) .love-sign{
 		top: 70px;
 	 }
 }

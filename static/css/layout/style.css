@@ -810,6 +810,32 @@ ul, li {
 	padding: 0px 15px 5px;
 }
 
+.timeline-body div{
+	text-align: right;
+}
+
+.timeline-body p{
+	text-align: left;
+}
+
+.timeline-body span{
+	font-size: 22px;
+	color: black;
+	cursor: pointer;
+}
+
+.timeline-body .icon-woman{
+	top: 10px;
+	font-size: 40px;
+	color: #d44646;
+}
+
+.timeline-body .icon-man{
+	top: 10px;
+	font-size: 40px;
+	color: #337ab7;
+}
+
 /*
 ========================================================================
 # 6 - RSVP Link styles
