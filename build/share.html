@@ -1,14 +1,267 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="UTF-8" />
-	<meta property="og:title"       content="Style.me" />
-	<meta property="og:type"        content="website" />
-	<meta property="og:image"       content="http://beta.style.me/style-me/server-rendering?bodyId=0000000110c1210410000216d0000000" />
-	<meta property="og:image:width"  content="1200" />
-	<meta property="og:image:height" content="630" />
-	<meta property="og:site_name"   content="StyleMe" />
-		<meta property="og:description" content="123" />
-	<title>Share</title>
+  <meta charset="UTF-8">
+  <title>Style.me SDK Example - after</title>
+
+
+  <style>
+    .product {
+      display: inline-block;
+      width: 150px;
+      border: 1px solid #cccccc;
+      vertical-align: top;
+      padding: 10px;
+    }
+
+    .product > img {
+      width: 100%;
+    }
+  </style>
+
 </head>
+<body>
+
+  <h2>Product List</h1>
+
+  <!-- method 1 : HTML Renderer -->
+  <!-- product list -->
+  <div>
+    <div class="product" data-retailer-sku="041402" data-retailer-color="white">
+      <img src="https://test.style.me/style-me/storages/00000850200100000000000010000000?mediaType=image/png">
+    </div>
+
+    <div class="product" data-retailer-sku="B2074" data-retailer-color="white">
+      <img src="https://test.style.me/style-me/storages/0000081a200100000000000010000000?mediaType=image/png">
+    </div>
+
+    <!-- if your enter sku & color, which are not exist or on-shelf in style.me system, try-on button will not appear -->
+    <div class="product" data-retailer-sku="wrong-sku" data-retailer-color="wrong-color">
+      <img src="https://test.style.me/style-me/storages/000008bd200100000000000010000000?mediaType=image/png">
+    </div>
+  </div>
+
+  <hr>
+
+
+  <h2>Dynamic Change try-on button target </h2>
+
+  <div>
+    <div id="dynamicChangeExample" class="product" data-retailer-sku="MDTEST1000315" data-retailer-color="na">
+      <img src="https://test.style.me/style-me/storages/00000b8f200100000000000010000000?mediaType=image/png">
+    </div>
+    <button onClick="switchCloth(0)">switch to clothe 1</button>
+    <button onClick="switchCloth(1)">switch to clothe 2</button>
+  </div>
+
+
+
+  <hr>
+
+
+
+  <h2>Customization Try-on Button</h1>
+
+
+  <!-- method2: Function Invocation -->
+  <!-- custom try-on button container -->
+  <ul class="tryon-button-container">
+    <li data-sku="041402" data-color="white"></li>
+    <li data-sku="b2074" data-color="white"></li>
+
+    <!-- if your enter sku & color, which are not exist or on-shelf in style.me system, getOnShelfClothes() will not ruturn the data -->
+    <li data-sku="wrong-sku" data-color="wrong-color">
+    </li>
+  </ul>
+
+  <hr>
+
+  <div>
+    <h1>Log Functions</h1>
+    <button onClick="sendLog('addCart');">sendUserAddCartLog</button>
+    <button onClick="sendLog('removeCart');">sendUserRemoveCartLog</button>
+    <button onClick="sendLog('checkout');">sendUserCheckOutLog</button>
+  </div>
+
+
+  <script type="text/javascript">
+    window.styleMeAsyncInit = function(StyleMeSDK){
+
+      // Please initialize Style.me SDK only once per page
+      var sdk = new StyleMeSDK({
+        retailerID: 'f1031298-dcff-47a9-b77a-1d0300a859c3',
+        shift: {
+          x: '-5px',
+          y: '-5px',
+        },
+      });
+
+      window.sdk = sdk;
+
+      // method 1 : HTML Renderer
+      sdk.createTryOnButtons();
+
+      // method 2 : Function Invocation
+      // Prepare clothes to be checked
+      var clothes = [];
+      var clothesInfoDOM = document.querySelectorAll('.tryon-button-container > li');
+
+      clothesInfoDOM.forEach(function(dom) {
+        clothes.push({
+          sku: dom.getAttribute('data-sku'),
+          color: dom.getAttribute('data-color'),
+        });
+      });
+
+      var onClick = function() {
+        sdk.tryOnClothes({
+          sku: this.getAttribute('data-sku'),
+          color: this.getAttribute('data-color'),
+        });
+      };
+
+      // Make sure your clothes exist & on-shelf on style.me system
+      sdk.getOnShelfClothes(clothes, function(onShelfClothes) {
+        onShelfClothes.map((cloth) => {
+          var sku = cloth.sku;
+          var color = cloth.color;
+          var selector = '[data-sku="' + sku + '"][data-color="' + color + '"]';
+
+          // Find custom try-on button container
+          var li = document.querySelectorAll(selector);
+
+          if (li.length) {
+            var button = document.createElement('button');
+
+            button.innerHTML = 'Custom button sku:' + sku;
+            button.setAttribute('data-sku', sku);
+            button.setAttribute('data-color', color);
+            button.onclick = onClick;
+
+            li[0].appendChild(button);
+          }
+        });
+      });
+    };
+  </script>
+
+  <script type="text/javascript">
+    var dynamicChangeExample = document.getElementById('dynamicChangeExample');
+    var clothes = [{
+      sku: 'MDTEST1000315',
+      color: 'na',
+      img: 'https://test.style.me/style-me/storages/00000b8f200100000000000010000000?mediaType=image/png',
+    }, {
+      sku: 'MD1000287',
+      color: 'test_cameraposition',
+      img: 'https://test.style.me/style-me/storages/00000b8d200100000000000010000000?mediaType=image/png',
+    }];
+
+    function switchCloth(index) {
+
+      var cloth = clothes[index];
+      var img = dynamicChangeExample.getElementsByTagName('img')[0];
+      var stylemeBtn = dynamicChangeExample.querySelectorAll('.style-me-launch')[0];
+      var presentSku = dynamicChangeExample.getAttribute('data-retailer-sku');
+      var presentColor = dynamicChangeExample.getAttribute('data-retailer-color');
+
+      if (presentSku === cloth.sku && presentColor === cloth.color) {
+        return false;
+      }
+
+      dynamicChangeExample.setAttribute('data-retailer-sku', cloth.sku);
+      dynamicChangeExample.setAttribute('data-retailer-color', cloth.color);
+      dynamicChangeExample.removeChild(stylemeBtn); // remove the exist try-on button
+      img.src = cloth.img;
+
+      if (sdk) {
+        sdk.createTryOnButtons(); // regenerate a new try-on button
+      } else {
+        console.error('Style.me SDK is not initialized');
+      }
+
+    }
+
+  </script>
+
+
+  <script type="text/javascript">
+    function sendLog(type) {
+
+      if (!StyleMeSDK) {
+        throw new Error('SDK is not really!!');
+        return false;
+      }
+
+      switch(type) {
+        case 'addCart': {
+          StyleMeSDK.sendUserAddCartLog({
+            retailerID: 'f1031298-dcff-47a9-b77a-1d0300a859c3',
+            sku: 'AW16WLD0LOCALTEST',
+            size: '38',
+            color: 'white',
+            price: 100,
+            qty: 2,
+          });
+          break;
+        }
+
+        case 'removeCart': {
+          StyleMeSDK.sendUserRemoveCartLog({
+            retailerID: 'f1031298-dcff-47a9-b77a-1d0300a859c3',
+            sku: 'AW16WLD0LOCALTEST',
+            size: '38',
+            color: 'white',
+            price: 100,
+            qty: 2,
+          });
+          break;
+        }
+
+        case 'checkout': {
+          StyleMeSDK.sendUserCheckOutLog({
+            retailerID: 'f1031298-dcff-47a9-b77a-1d0300a859c3',
+            orderId: 1,
+            revenue: 100,
+            tax: 10,
+            shipping: 5,
+            discount: 0,
+            products: [{
+              orderId: 1,
+              sku: 'AW16WLD0LOCALTEST',
+              size: '38',
+              color: 'white',
+              price: 100,
+              qty: 2,
+            }, {
+              orderId: 1,
+              sku: 'AW16WLD0LOCALTEST2',
+              size: 'XS',
+              color: 'red',
+              price: 150,
+              qty: 4,
+            }],
+          });
+          break;
+        }
+      }
+
+      console.log('sendLog!', type);
+    }
+  </script>
+
+  <!--
+    Client website frameworks conflict testing
+  -->
+
+  <!--
+    Pam & Gela
+  -->
+  <script type="text/javascript" src="https://www.pamandgela.com/store/js/prototype/prototype.js"></script>
+
+  <script src="http://10.1.20.55:3001/en.styleme.js"></script>
+
+</body>
 </html>
+
+
